@@ -1,0 +1,14 @@
+<div class="d-flex flex-column flex-md-row text-light mt-5 rounded bg-general bookcard p-0">
+  <img [src]="book.image" class="img-fluid m-0 rounded w-md-50" alt="book pic" />
+  <div class="m-3 d-flex flex-column justify-content-between w-100">
+    <p><i class="fa fa-book"></i> : {{ book.title }}</p>
+    <p><i class="fa fa-pencil-square-o"></i> : {{ book.author }}</p>
+    <p><i class="fa fa-globe"></i> : {{ book.country }}</p>
+    <p><i class="fa fa-file-text-o"></i> : {{ book.pages }} Pages</p>
+    <small *ngIf="book.quantity<10 && book.quantity>0">Only {{book.quantity}} left</small>
+    <small *ngIf="book.quantity==0" class="text-danger fw-bold">Not in stock</small>
+      <div class="w-100 d-flex justify-content-center">
+        <button [disabled]="book.quantity==0" class="btn btn-dark w-100">Buy</button>
+      </div>
+  </div>
+</div>
